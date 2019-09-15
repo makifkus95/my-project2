@@ -1,0 +1,24 @@
+
+<h4>Products </h4>
+			  <ul class="thumbnails">
+				  {% for rs in randProducts %}
+				<li class="span3">
+				  <div class="thumbnail">
+					<a  href="/product/{{ rs.id }}"><img src="{{ asset('uploads') }}/images/{{ rs.image }}" style="height: 200px; width: auto;" alt=""/></a>
+					<div class="caption">
+					  <a href="/product/{{ rs.id }}"><h5>{{ rs.title }}</h5></a>
+					  <p> 
+						{{ rs.description }}
+					  </p>
+
+						<h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">{{ rs.sprice }}</a></h4>
+					</div>
+				  </div>
+                    {% endfor %}
+				</li>
+			  </ul>
+		</div>
+		</div>
+	</div>
+</div>
+<!-- Footer ================================================================== -->

@@ -1,0 +1,160 @@
+{{ include('admin/messages.html.twig') }}
+
+<form class="modal-form" method="post">
+
+    <div class="col-lg-10">
+        <!--Pill Tabs   -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Pill Tabs
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-pills">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Genel Bilgiler</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">Email Server</a><li>
+                    <li><a href="#tab_3" data-toggle="tab">Hakkımızda sayfası</a></li>
+                    <li><a href="#tab_4" data-toggle="tab">Iletişim sayfası</a></li>
+                    <li><a href="#tab_5" data-toggle="tab">Referanslar sayfası</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="tab_1">
+
+                        <div >
+                            <label>Title:</label>
+                            <div >
+                                <input class="form-control" value="{{ setting.title }}"  name="setting[title]" type="text" >
+                            </div>
+                        </div>
+                        <div >
+                            <label>Keywords:</label>
+                            <div>
+                                <input class="form-control" value="{{setting.keywords }}" name="setting[keywords]" type="text" >
+                            </div>
+                        </div>
+                        <div >
+                            <label>Description:</label>
+                            <div>
+                                <input class="form-control" value="{{setting.description }}" name="setting[description]" type="text" >
+                            </div>
+                        </div>
+
+                        <div >
+                            <label>company:</label>
+                            <div>
+                                <input class="form-control" value="{{setting.company }}" name="setting[company]" type="text" >
+                            </div>
+                        </div>
+
+                        <div >
+                            <label>adress:</label>
+                            <div>
+                                <input class="form-control" value="{{setting.address }}" name="setting[address]" type="text" >
+                            </div>
+                        </div>
+
+                        <div >
+                            <label>fax:</label>
+                            <div>
+                                <input class="form-control" value="{{setting.fax }}" name="setting[fax]" type="text" >
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>Durum:</label>
+                            <div >
+                                <select class="form-control" name="setting[status]">
+                                    <option>{{ setting.status }}</option>
+                                    <option>True</option>
+                                    <option selected>False</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane" id="tab_2">
+                        <div >
+                            <label>Email Server:</label>
+                            <div >
+                                <input class="form-control" value="{{ setting.smtpserver }}"  name="setting[smtpserver]" type="text" >
+                            </div>
+                        </div>
+                        <div >
+                            <label>Email:</label>
+                            <div>
+                                <input class="form-control" value="{{setting.smtpemail }}" name="setting[smtpemail]" type="text" >
+                            </div>
+                        </div>
+                        <div >
+                            <label>Email Şifre:</label>
+                            <div>
+                                <input class="form-control" value="{{setting.smptppassw }}" name="setting[smptppassw]" type="text" >
+                            </div>
+                        </div>
+
+                        <div >
+                             <label>SMPT Port::</label>
+
+                             <input class="form-control" value="{{setting.smtpport }}" name="setting[smtpport]" type="text" >
+
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_3">
+
+                        <div >
+
+                            <textarea id="aboutus" name="setting[aboutus]" rows="10" cols="100">{{setting.aboutus }}</textarea>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_4">
+
+                        <div >
+
+                            <textarea id="contact" name="setting[contact]" rows="10" cols="100">{{setting.contact }}</textarea>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_5">
+
+                        <div >
+
+                            <textarea id="referances" name="setting[referances]" rows="10" cols="100">{{setting.referances }}</textarea>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Pill Tabs   -->
+        <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+        <button class="btn btn-light">İptal</button>
+    </div>
+
+</form>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#aboutus' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#contact' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#referances' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

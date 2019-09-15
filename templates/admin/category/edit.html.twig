@@ -1,0 +1,32 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Kategori listesi{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="row">
+            <!-- Page Header -->
+
+            <!--End Page Header -->
+
+            <!-- kendi getirdiğim tablo -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Kitchen Sink
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+
+                        {{ include('admin/category/_form.html.twig', {'button_label': 'Update'}) }}
+
+                        <a href="{{ path('admin_category_index') }}">back to list</a>
+
+                        {{ include('admin/category/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+

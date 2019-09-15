@@ -1,0 +1,51 @@
+<div>
+    <h1 class="page-header">Kategori Ekleme</h1>
+</div>
+<form method="post">
+    <div>
+        <label>Üst Kategori</label>
+        <div >
+            <select class="form-control" name="category[parentid]">
+
+                <option value="{{ category.parentid }}">{{ category.parentid }}</option>
+                <option value="0">Ana Kategori</option>
+
+                {%  for cat in catlist %}
+                <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+    </div>
+    <div >
+        <label>Title:</label>
+        <div >
+            <input class="form-control" value="{{ category.title }}"  name="category[title]" type="text" >
+        </div>
+    </div>
+    <div >
+        <label>Keywords:</label>
+        <div>
+            <input class="form-control" value="{{category.keywords }}" name="category[keywords]" type="text" >
+        </div>
+    </div>
+    <div >
+        <label>Description:</label>
+        <div>
+            <input class="form-control" value="{{category.description }}" name="category[description]" type="text" >
+        </div>
+    </div>
+    <div>
+        <label>Aktiflik Durumu:</label>
+        <div >
+            <select class="form-control" name="category[status]">
+                <option>{{ category.status }}</option>
+                <option>True</option>
+                <option selected>False</option>
+            </select>
+
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+    <button class="btn btn-light">İptal</button>
+</form>

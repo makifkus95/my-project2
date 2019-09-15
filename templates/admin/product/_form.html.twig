@@ -1,0 +1,84 @@
+<form class="modal-form" method="post">
+    <div>
+        <label>Kategorisi</label>
+        <div >
+            <select class="form-control" name="product[categoryid]">
+                {% if(catname) %}
+                    <option value="{{ product.categoryid }}">{{ catname.title }}</option>
+                {% endif %}
+                {%  for cat in catlist %}
+                    <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+    </div>
+    <div >
+        <label>Title:</label>
+        <div >
+            <input class="form-control" value="{{ product.title }}"  name="product[title]" type="text" >
+        </div>
+    </div>
+    <div >
+        <label>Keywords:</label>
+        <div>
+            <input class="form-control" value="{{product.keywords }}" name="product[keywords]" type="text" >
+        </div>
+    </div>
+    <div >
+        <label>Description:</label>
+        <div>
+            <input class="form-control" value="{{product.description }}" name="product[description]" type="text" >
+        </div>
+    </div>
+
+    <div >
+        <label>alış fiyatı:</label>
+        <div>
+            <input class="form-control" value="{{product.pprice }}" name="product[pprice]" type="text" >
+        </div>
+    </div>
+
+    <div >
+        <label>satış fiyatı:</label>
+        <div>
+            <input class="form-control" value="{{product.sprice }}" name="product[sprice]" type="text" >
+        </div>
+    </div>
+
+    <div >
+        <label>miktar:</label>
+        <div>
+            <input class="form-control" value="{{product.amount }}" name="product[amount]" type="text" >
+        </div>
+    </div>
+
+    <div>
+        <label>Aktiflik Durumu:</label>
+        <div >
+            <select class="form-control" name="product[status]">
+                <option>{{ product.status }}</option>
+                <option>True</option>
+                <option selected>False</option>
+            </select>
+
+        </div>
+    </div>
+
+    <div >
+        <label>Detay:</label>
+        <div>
+            <textarea id="detail" name="product[detail]" rows="10" cols="100">{{product.detail }}</textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+    <button class="btn btn-light">İptal</button>
+</form>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#detail' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

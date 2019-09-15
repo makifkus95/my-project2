@@ -1,0 +1,10 @@
+
+    <h1>Create new Images</h1>
+
+    {{ include('admin/images/_form.html.twig') }}
+
+   {% for image in imagelist %}
+        <img src="{{ asset('uploads') }}/images/{{ image.image }}" height="150">
+
+       <a href="{{ path('admin_images_del',{'id':image.id, 'pid' : image.productid}) }}" onclick="return confirm('silinecek emin misin?');">Sil</a>
+   {% endfor %}

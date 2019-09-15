@@ -1,0 +1,71 @@
+{{ include('messages.html.twig') }}
+
+<div class="container">
+    <form name="order" method="post" action="{{ path('orders_new') }}">
+
+        <div>
+            <label for="exampleInputEmail2">Ödenecek Tutar:</label>
+            <div>
+                <input class="form-control" value="{{ total }}" id="disabledInput" name="orders[amount]" type="text">
+            </div>
+        </div>
+        KARGO ALICI BİLGİLERİ
+
+        <div>
+            <label for="exampleInputEmail2">Adı Soyadı:</label>
+            <div>
+                <input class="form-control" value="{{ app.user.name }}" id="disabledInput" name="orders[name]" type="text">
+            </div>
+        </div>
+        <div >
+            <label for="exampleInputEmail2" >adress:</label>
+            <div >
+                <input class="form-control" value="{{ app.user.address }}" id="disabledInput" name="orders[address]">
+            </div>
+        </div>
+        <div >
+            <label for="exampleInputPassword2" >Şehir:</label>
+            <div>
+                <input class="form-control" value="{{ app.user.city }}" id="disabledInput" name="orders[city]">
+            </div>
+        </div>
+        <div >
+            <label for="exampleInputPassword2" >telefon:</label>
+            <div>
+                <input class="form-control" value="{{ app.user.phone }}" id="disabledInput" name="orders[phone]">
+            </div>
+        </div>
+
+        KREDİ KART BİLGİLERİ:
+
+        <div>
+            <label for="exampleInputEmail2">Adı:</label>
+            <div>
+                <input class="form-control" id="disabledInput" >
+            </div>
+        </div>
+        <div>
+            <label for="exampleInputEmail2">Soyadı:</label>
+            <div>
+                <input class="form-control" id="disabledInput"  type="text">
+            </div>
+        </div>
+        <div>
+            <label for="exampleInputEmail2">son kullanma tarihi:</label>
+            <div>
+                <input class="form-control"  id="disabledInput" type="text">
+            </div>
+        </div>
+        <div>
+            <label for="exampleInputEmail2">güvenlik kodu:</label>
+            <div>
+                <input class="form-control"  id="disabledInput" type="text">
+            </div>
+        </div>
+        <input type="hidden" name="token" value="{{ csrf_token('form-order') }}">
+        <button type="submit" class="btn btn-success mr-2">Satın Al</button>
+
+    </form>
+
+
+</div>
